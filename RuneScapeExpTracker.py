@@ -4,7 +4,7 @@ Shows RuneScape experience player historicals
 """
 
 import requests
-import tkinter as tk
+from tkinter import *
 
 
 headers = {
@@ -28,8 +28,29 @@ def getCurrentExp(name):
         playerExp[i] = current[2]
         n+=1
     for k in playerExp:
-        print(k,playerExp[k])
+       print(k,playerExp[k])
 
 
+def main():
+    
+    window = Tk()
+    window.title("RuneScapeExpTracker")
+    window.geometry('600x1000')
+    window.tk.call('tk', 'scaling', 2.0)
 
-getCurrentExp("peeperwop")
+    enterNameLbl = Label(window, text="Enter Username: ")
+    enterNameLbl.grid(column=1, row=0)
+    userTextBox = Text(window, height=1, width=15)
+    userTextBox.grid(column=2, row=0)
+    getInfoButton = Button(window, height=0, width=10, text="Get Info", command=getCurrentExp(userTextBox.get("1.0","end-1c")))
+    getInfoButton.grid(column=4,row=0,padx=10)
+
+    enterNameLbl.pack()
+    userTextBox.pack()
+    getInfoButton.pack()
+
+    window.mainloop()
+
+
+if __name__ == "__main__":
+    main()
