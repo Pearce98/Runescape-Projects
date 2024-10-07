@@ -6,7 +6,6 @@ Trend analysis for any item on Grand Exchange
 
 import requests
 import json
-import tkinter as tk
 
 
 itemCats = {
@@ -73,10 +72,6 @@ def getListOfItems(X):
 
 getListOfItems(1)
 
-
-
-
-
 def callPrices(itemId):
     """
     Returns info for specific item
@@ -87,8 +82,6 @@ def callPrices(itemId):
     for i in itemInfo['item'].values():
         print(i)
     return itemInfo
-
-
 
 jsonData = callPrices(21787)
 
